@@ -1,0 +1,54 @@
+body{
+    margin: 0;
+}
+#a{
+    background: #0984e3;
+}
+#a ul{
+   list-style: none;
+   margin: 0;
+   padding: 0;
+   text-align: center;
+}
+#a li{
+    display: inline-block;
+    position: relative;
+    
+
+}
+#a li a{
+    padding: 12px 25px;
+    display: block;
+    color: #ffff;
+    text-decoration: none;
+    
+}
+#a li a:hover{
+    background:#0e1216;
+}
+#a ul ul {
+    position: absolute;
+    left: -17px;
+    top: 42px;
+    background: #0984e3;
+    width: 120px;
+    display:none
+}
+#a ul ul li {
+    display:block;
+}
+#a ul li:hover a{
+    background:#574b90;
+}
+#a ul li:hover ul {
+    display: block;
+
+}
+#a ul li:hover li a{
+    background:#45aaf2;
+}
+#a ul ul li a:hover{
+    background:#546de5;
+    color: #0e1216;
+   
+}

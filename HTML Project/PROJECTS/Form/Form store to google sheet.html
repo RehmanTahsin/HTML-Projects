@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ 
+    <title>Form</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,600;0,700;1,200;1,600;1,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="me.css">
+
+</head>
+<body>
+    <form name="submit-to-google-sheet">
+        <div class="form">
+            <h1>Sign up</h1> 
+            <p>Hello Welcome to your world!!! </p>
+         
+        <div class="a">
+            <label for="First Name">First name:</label>
+            <input type="text" id="First Name" name="First Name" placeholder="First name" required>
+        </div>
+        <div class="a">
+            <label for="Last Name">Last name:</label>
+            <input type="text" id="Last Name" name="Last Name" placeholder="Last name" required>
+        </div>
+        <div class="a">
+            <label for="Email">Email:</label>
+            <input type="email" id="Email" name="Email" placeholder="Email" required>
+        </div>
+        <div class="a"> 
+            <label for="pass">password:</label>
+            <input type="password" id="password" name="password" placeholder="password" required>
+        </div>
+        <div class="a">
+        <label for="Contect Number">Contect Number:</label>
+        <select>
+            <option value="+880">+880</option>
+            <option value="+110">+110</option>
+            <option value="+99">+99</option>
+        </select>
+        <input type="number" id="Contect Number" name="Contect Num" placeholder="Contect Number" required>
+    </div>
+        <div class="a"> <textarea rows="10" cols="60" placeholder="Comment Here" ></textarea>
+            <input type="hidden" name="_template" value="table"></div>
+            <div class="a"><button type="submit">Send</button>
+                <button type="reset">Reset</button>
+                </div>
+        <br>
+    <span id="Success"></span>
+    </form>
+</div> 
+<script>
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbyaqL2j8j9PIP5iWYqo5CTcoHwfQ5mYwJgrOqE87Njvg75St0Hb5bUCAWjGzaplTKAc/exec'
+    const form = document.forms['submit-to-google-sheet']
+    const Success = document.getElementById('Success')
+    form.addEventListener('submit', e => {
+      e.preventDefault()
+      fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+        .then(response => {
+       Success.innerHTML="Data successfully submit";
+        } )
+        .catch(error => console.error('Error!', error.message))
+    })
+  </script>
+</body>
+</html>
